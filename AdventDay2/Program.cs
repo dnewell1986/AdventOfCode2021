@@ -2,33 +2,8 @@
 
 using AdventDay2;
 
-var xValue = 0;
-var yValue = 0;
+var part1Solution = Solver.SolvePartOne();
+var part2Solution = Solver.SolvePartTwo();
+Console.WriteLine($"Part One: Multiplied value is {part1Solution}");
+Console.WriteLine($"Part Two: Multiplied value is {part2Solution}");
 
-foreach(var command in SubmarineCommands.Commands)
-{
-    var commandTuple = ParseCommand(command);
-    switch(commandTuple.Item1)
-    {
-        case "forward":
-            xValue += commandTuple.Item2;
-            break;
-        case "down":
-            yValue += commandTuple.Item2;
-            break;
-        case "up":
-            yValue -= commandTuple.Item2;
-            break;
-        default:
-            throw new NotImplementedException();
-    }
-}
-Console.WriteLine($"xValue is: {xValue}");
-Console.WriteLine($"yValue is: {yValue}");
-Console.WriteLine($"Part One: Multiplied value is {xValue * yValue}");
-
-Tuple<string, int> ParseCommand(string command)
-{
-    var values = command.Split(' ');
-    return new Tuple<string, int>(values[0], int.Parse(values[1]));
-}
