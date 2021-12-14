@@ -2,15 +2,15 @@
 using AdventDay3;
 
 var powerConsumptionRate = SolvePartOne();
+var lifeSupportRating = Solver.SolvePartTwo();
 Console.WriteLine(powerConsumptionRate);
+Console.WriteLine($"Life Support Rating: {lifeSupportRating}");
 
 int SolvePartOne()
 {
     var binStringLength = Input.diagReport.First().Length;
     var gammaRate = new string[binStringLength];
     var epsilonRate = new string[binStringLength];
-    
-    var currentStringPosition = 0;
 
     for(var x = 0; x < binStringLength; x++)
     {
